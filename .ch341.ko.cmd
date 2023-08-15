@@ -1,0 +1,1 @@
+cmd_/root/CH341SER_LINUX/driver/ch341.ko := ld -EL -r  -T ./scripts/module-common.lds --build-id  -o /root/CH341SER_LINUX/driver/ch341.ko /root/CH341SER_LINUX/driver/ch341.o /root/CH341SER_LINUX/driver/ch341.mod.o
