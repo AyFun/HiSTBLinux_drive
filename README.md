@@ -1,4 +1,4 @@
- 目录里是hi3798mv3dmm_hi3798mv300编译好的ch341串口驱动
+ 目录里是hi3798mv3dmm_hi3798mv300编译好的ch341串口驱动，其他驱动大同小异
 
 ## 编译步骤
 
@@ -6,7 +6,7 @@
 
 ### 2. 修改source/kernel/linux-4.4.y/include/linux/vermagic.h
 
-    例如:替换 UTS_RELEASE 为 4.4.35_ecoo_xxxx ,删除MODULE_VERMAGIC_PREEMPT
+    例如:替换 UTS_RELEASE 为 4.4.35_ecoo_xxxx ,删除MODULE_VERMAGIC_PREEMPT，或者直接写死VERMAGIC_STRING。
 
 ### 3. 生成 .config 复制到 source/kernel/linux-4.4.y
 
@@ -38,7 +38,7 @@ make -C /xxxx/linux-4.4.y M=/xxxx/ch341.c
 ```
     也可以尝试去官网下载最新的驱动编译，我试过，虽然能成功发送指令，但是设备必然会死机，不知为何。
 
-### 6.加载驱动
+### 6. 加载驱动
 
 ```sh
 insmod ch341.ko
@@ -47,4 +47,9 @@ insmod ch341.ko
     depmod -a
     查看
     dmesg | tail
+
+### 7. 其他
+    如果查看驱动发现报错
+    Unknown symbol __dynamic_dev_dbg (err 0)
+    可以注释掉 .config 里的 CONFIG_DYNAMIC_DEBUG
 
