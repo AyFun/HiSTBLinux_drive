@@ -23,7 +23,7 @@ make linux
 
     注意如果是arm64，要在make menuconfig中修改。
 
-### 4. 编译
+### 4. 编译linux内核
     可以交叉编译（没试过），我是直接复制到设备里编译的。
     提取 source\kernel\linux-4.4.y 这个目录，复制到设备里。
 ```sh
